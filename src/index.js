@@ -19,7 +19,7 @@ import Stroke from 'ol/style/Stroke.js';
 import Style from 'ol/style/Style.js';
 import Text from 'ol/style/Text.js';
 
-
+const newZipServerUrl = `https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/USA_Boundaries_2023/FeatureServer/query`;
 const zipServerUrl = `https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/census_zip_code_tab_areas_ogc/OGCFeatureServer/api/collections/0/items`;
 const params = `f=application/geo+json&limit=1000`;
 
@@ -62,7 +62,7 @@ const layer = new VectorLayer({
 
       console.log(layer);
 
-      const url = `${zipServerUrl}?${params}&bbox=${extentString}`;
+      const url = `${newZipServerUrl}?${params}&bbox=${extentString}`;
       return url;
     },
     strategy: bboxStrategy,
