@@ -8,7 +8,6 @@ import View from 'ol/View.js';
 import GeoJSON from 'ol/format/GeoJSON.js';
 import TileLayer from 'ol/layer/Tile.js';
 import VectorLayer from 'ol/layer/Vector.js';
-import {bbox as bboxStrategy} from 'ol/loadingstrategy.js';
 import OSM from 'ol/source/OSM.js';
 import VectorSource from 'ol/source/Vector.js';
 
@@ -19,15 +18,13 @@ import Stroke from 'ol/style/Stroke.js';
 import Style from 'ol/style/Style.js';
 import Text from 'ol/style/Text.js';
 
-import Feature from 'ol/Feature.js';
-
 
 
 
 const lakeStyle = {
-  'fill-color': 'rgba(70, 130, 180, 0.6)',
+  'fill-color': 'rgba(70, 130, 180, 0.2)',
   'stroke-color': 'rgba(25, 25, 112, 1)',
-  'stroke-width': 2,
+  'stroke-width': 1,
 };
 
 useGeographic();
@@ -46,7 +43,7 @@ const labelStyle = new Style({
 });
 const countryStyle = new Style({
   fill: new Fill({
-    color: 'rgba(255, 255, 255, 0.6)',
+    color: 'rgba(255, 255, 255, 0.2)',
   }),
   stroke: new Stroke({
     color: '#319FD3',
@@ -140,11 +137,4 @@ async function addFeatures() {
     zipSource.addFeature(zipcode);
   }
 
-  console.log(zipSource);
 }
-
-// for (let i = 0; i < data.features.length; i++) {
-   
-//   const zipcode = new GeoJSON().readFeature(data.features[i])
-//   zipSource.addFeature(zipcode);
-// }
